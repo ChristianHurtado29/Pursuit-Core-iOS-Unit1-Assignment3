@@ -9,7 +9,12 @@
 import Foundation
 
 func mathStuffFactory(opString: String) -> (Double, Double) -> Double {
-if 
+    var opString = opString
+    if opString == "?" {
+        opString = ["+", "-", "*", "/"].randomElement() ?? "+"
+        print("The mystery symbol was \(opString)")
+    }
+        
   switch opString {
   case "+":
     return {x, y in x + y }
