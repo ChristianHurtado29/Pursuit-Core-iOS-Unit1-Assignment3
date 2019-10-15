@@ -65,4 +65,4 @@ let resultCalculation = calculateOperation(str: userEntry)
 print(resultCalculation)
 
 //print("\(temp1) \(sign) \(temp2) = \(resultCalculation)")
-//
+////
