@@ -12,7 +12,7 @@ func mathStuffFactory(opString: String) -> (Double, Double) -> Double {
     var opString = opString
     if opString == "?" {
         opString = ["+", "-", "*", "/"].randomElement() ?? "+"
-        print("The mystery symbol was \(opString)")
+        print("Can you guess what operation it was?")
     }
         
   switch opString {
@@ -59,10 +59,17 @@ func calculateOperation(str: String) -> Double {
 
    return result
 }
-
 let userEntry = readLine() ?? " "
 let resultCalculation = calculateOperation(str: userEntry)
 print(resultCalculation)
 
 //print("\(temp1) \(sign) \(temp2) = \(resultCalculation)")
-////
+//
+print("Now let's play a game!")
+
+print("I invite you to instead of our standard normal operators(+,-,*,/)")
+print("enter a math equation that goes (number ? numer)")
+print("we'll only reveal the answer and you'll have to guess which operator it was!")
+
+let mysteryGuess = readLine() ?? " "
+let mysteryResult = mathStuffFactory(opString: "?")
