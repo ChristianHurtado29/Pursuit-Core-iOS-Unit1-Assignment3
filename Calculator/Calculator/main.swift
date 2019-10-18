@@ -149,12 +149,10 @@ func customMap(arr: [Double], closure: (Double) -> Double) -> [Double] {
 
   for num in arr {
     mappedArr.append(num)
-
 }
     return mappedArr
-  }
-
-
+}
+    
 // using customMap function above take in an array of numbers and return
 // the squared values of each of those elements
 // input: [1, 2, 3, 4, 5, 6, 7]
