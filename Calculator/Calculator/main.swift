@@ -109,20 +109,58 @@ let mysteryResult = mathStuffFactory(opString: "?")
 
 print("Welcome to High Order Functions!")
     print("please choose between filter, map, or reduce and enter your array of numbers")
-print("e.g - filter 1,2,3,4,5,6,7,8 by < 3")
-    
-// FILTER FUNCTION
+    print("Just like the order below")
+print("e.g - filter 1,2,3,4,5,6,7,8 by > 3")
+
+let userHighEntry = readLine() ?? "function"
+
 func filterFunc(arr:[Double], closure:(Double)-> Bool) -> [Double]{
-    var filterResults = [Double]()
-    for num in arr {
-    if closure(num) {
-        filterResults.append(num)
+  var filterResults = [Double]()
+
+   for num in arr {
+   if closure(num) {
+       filterResults.append(num)
+       }
+   }
+   return filterResults
+}
+var unwrappedArrayNum = [Double]()
+let playersResponseB = userHighEntry.components(separatedBy: " ")
+let playersResponse1 = playersResponseB[1].components(separatedBy: ",")
+     for nums in playersResponse1 {
+         if let unwrappedNum = Double(nums) {
+             unwrappedArrayNum.append(unwrappedNum)
+         } else {
+            print(nums)
         }
+     }
+
+let filterNumberBy = Double(playersResponseB[4]) ?? 4.0
+
+if playersResponseB[3] == "<" {
+print(filterFunc(arr: unwrappedArrayNum, closure: {$0 < filterNumberBy}))
+} else if playersResponseB[3] == ">" {
+print(filterFunc(arr: unwrappedArrayNum, closure: {$0 > filterNumberBy}))
     }
-    return filterResults
 }
 
-   // func mapFunc {
-        
-    }
+func customMap(arr: [Double], closure: (Double) -> Double) -> [Double] {
+  var mappedArr = [Double]()
 
+  for num in arr {
+    mappedArr.append(num)
+
+}
+    return mappedArr
+  }
+
+
+// using customMap function above take in an array of numbers and return
+// the squared values of each of those elements
+// input: [1, 2, 3, 4, 5, 6, 7]
+// output: [1, 4, 9, 16, 25, 36, 49]
+//let numberArray = [1, 2, 3, 4, 5, 6, 7]
+//let squaredNumberArray = customMap(arr: numberArray) { number in
+//  number * number
+//}
+//print(squaredNumberArray)
